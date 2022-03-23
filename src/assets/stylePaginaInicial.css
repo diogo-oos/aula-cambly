@@ -1,0 +1,18 @@
+/*REGRAS PARA OS CARDS DA PÁGINA DE LISTAR PROFESSORES*/
+
+.btn.perfil{
+    background-color: #EEEEEE;
+    position: absolute;
+    bottom: 0;
+    right: 67px;
+    margin: 5px;
+}
+
+.btn.ligar{
+    background-color: #186168;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+}
