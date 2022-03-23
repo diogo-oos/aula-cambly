@@ -1,27 +1,27 @@
+/**
+ * Componente de card dos professores
+ * Utilizado na página de listagem dos professores
+ */
+
 import { CardArea } from "../../assets/styledComponents/cardStyles"
 import { Image } from "../../assets/styledComponents/cardStyles"
 import { FavoriteArea } from "../../assets/styledComponents/cardStyles"
 import { Heart } from 'react-bootstrap-icons';
+import { HeartFill } from 'react-bootstrap-icons';
 import { Botao } from './botao';
 import { useState } from "react";
 
 export const CardTutors = (props) => {
+    const { name, image, country, rating } = props
 
-    let controlFavorite = true;
-    const { name, image, country, rating} = props
+    const [favorite, setFavorite] = useState(props.favorite);
 
-    const [favorite, setFavorite] = useState(null);
+    function changeFavorite(favorite) {
+        if (favorite) 
+            setFavorite(false)
 
-    function changeFavorite() {
-        if(controlFavorite){
-            setFavorite(true);
-            controlFavorite = false;
-        }
-        else{
-            setFavorite(false);
-            controlFavorite = true;
-        }
-        
+        else 
+            setFavorite(true)
     }
 
     return (
@@ -50,11 +50,11 @@ export const CardTutors = (props) => {
                             </div>
 
                         </div>
-                        
+
                         <FavoriteArea>
-                            <button onClick={() => changeFavorite()} className="btn" ><Heart/>{favorite? 'sim': 'não'}</button>
+                            <button onClick={() => changeFavorite(favorite)} className="btn" >{favorite ? <HeartFill /> : <Heart />}</button>
                         </FavoriteArea>
-                        
+
                         <div className="speaks">
                             Speaks: {props.speaks.map(speak => speak.title).join(', ')}
                         </div>
@@ -67,7 +67,7 @@ export const CardTutors = (props) => {
 
             <div>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Molestiae eaque minus cum saepe sed modi tempore.
+                    Molestiae eaque minus cum saepe sed modi tempore.
                 </p>
             </div><br />
 
